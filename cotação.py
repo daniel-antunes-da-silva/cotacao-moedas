@@ -7,7 +7,8 @@ print(f'Data atual: {data_atual}')
 print('=' * 50)
 
 requisicao = requests.get(
-    'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,BRL-EUR,USD-EUR,EUR-USD,JPY-BRL,BRL-JPY').json()
+    'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,BRL-EUR,USD-EUR,EUR-USD,JPY-BRL,BRL-JPY,'
+    'JPY-USD,USD-JPY,JPY-EUR,EUR-JPY').json()
 # print(requisicao)
 lista_de_moedas = ['USDBRL', 'EURBRL', 'JPYBRL']
 dic_moedas = {1: 'USD', 2: 'BRL', 3: 'EUR', 4: 'JPY'}
@@ -25,7 +26,7 @@ while True:
                                             '[1] - Dólar\n'
                                             '[2] - Euro\n'
                                             '[3] - Iene japonês\n'
-                                            '[4] - Encerrar\n'
+                                            '[4] - Voltar\n'
                                             'Sua escolha: '))
                 print('-' * 50)
                 if escolha_cotacao == 4:
@@ -87,7 +88,7 @@ while True:
             except (ValueError, TypeError):
                 print('Erro no tipo ou valor.')
             except Exception as causa:
-                print(f'Ocorreu algum erro: {causa.__cause__}')
+                print(f'Ocorreu algum erro: {causa.__cause__}. Talvez não seja uma combinação válida.')
     elif escolha_usuario == '3':
         print('Encerrado.')
         break
