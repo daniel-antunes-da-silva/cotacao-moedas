@@ -7,11 +7,10 @@ print(f'Data atual: {data_atual}')
 print('=' * 50)
 
 requisicao = requests.get(
-    'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,BRL-EUR,USD-EUR,EUR-USD,JPY-BRL,BRL-JPY,'
-    'JPY-USD,USD-JPY,JPY-EUR,EUR-JPY').json()
-# print(requisicao)
-lista_de_moedas = ['USDBRL', 'EURBRL', 'JPYBRL']
-dic_moedas = {1: 'USD', 2: 'BRL', 3: 'EUR', 4: 'JPY'}
+    'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,BRL-EUR,USD-EUR,EUR-USD').json()
+print(requisicao)
+lista_de_moedas = ['USDBRL', 'EURBRL']
+dic_moedas = {1: 'USD', 2: 'BRL', 3: 'EUR'}
 while True:
     print('Escolha uma opção: ')
     escolha_usuario = str(input('[1] - Ver cotação de alguma moeda\n'
@@ -25,13 +24,12 @@ while True:
                 escolha_cotacao = int(input('Quer ver a cotação de qual moeda?\n'
                                             '[1] - Dólar\n'
                                             '[2] - Euro\n'
-                                            '[3] - Iene japonês\n'
-                                            '[4] - Voltar\n'
+                                            '[3] - Voltar\n'
                                             'Sua escolha: '))
                 print('-' * 50)
-                if escolha_cotacao == 4:
+                if escolha_cotacao == 3:
                     break
-                elif escolha_cotacao not in (1, 2, 3):
+                elif escolha_cotacao not in (1, 2):
                     print('Opção inválida.')
                 else:
                     # Pega a cotação da moeda escolhida
@@ -56,9 +54,8 @@ while True:
                                               '[1] - Dólar\n'
                                               '[2] - Real\n'
                                               '[3] - Euro\n'
-                                              '[4] - Iene japonês\n'
                                               'Sua escolha: '))
-                    if moeda_inicial not in (1, 2, 3, 4):
+                    if moeda_inicial not in (1, 2, 3):
                         print('Moeda inicial inválida.')
                     else:
                         # Pega a sigla da moeda inicial escolhida, de acordo com o dicionário de moedas.
@@ -71,9 +68,8 @@ while True:
                                              '[1] - Dólar\n'
                                              '[2] - Real\n'
                                              '[3] - Euro\n'
-                                             '[4] - Iene japonês\n'
                                              'Sua escolha: '))
-                    if moeda_cambio not in (1, 2, 3, 4):
+                    if moeda_cambio not in (1, 2, 3):
                         print('Moeda de câmbio inválida.')
                     else:
                         # Pega a sigla da moeda de câmbio escolhida, de acordo com o dicionário de moedas..
