@@ -1,5 +1,6 @@
 import requests
 from datetime import datetime
+from funcoes import leiadinheiro, dinheiro_formatado
 
 print('     SISTEMA DE COTAÇÃO DE MOEDAS')
 data_atual = str(datetime.today())
@@ -8,7 +9,7 @@ print('=' * 50)
 
 requisicao = requests.get(
     'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,BRL-EUR,USD-EUR,EUR-USD').json()
-print(requisicao)
+# print(requisicao)
 lista_de_moedas = ['USDBRL', 'EURBRL']
 dic_moedas = {1: 'USD', 2: 'BRL', 3: 'EUR'}
 while True:
@@ -35,10 +36,10 @@ while True:
                     # Pega a cotação da moeda escolhida
                     moeda = lista_de_moedas[escolha_cotacao - 1]
                     print('1 real representa: ')
-                    print(f'Cotação {moeda}: {requisicao[f"{moeda}"]["bid"]}')
+                    print(f'Cotação {moeda}: {dinheiro_formatado(requisicao[f"{moeda}"]["bid"])}')
                     print('Flutuação diária:')
-                    print(f'Mínima: {requisicao[moeda]["low"]}\n'
-                          f'Máxima: {requisicao[moeda]["high"]}')
+                    print(f'Mínima: {dinheiro_formatado(requisicao[moeda]["low"])}\n'
+                          f'Máxima: {dinheiro_formatado(requisicao[moeda]["high"])}')
             except (ValueError, TypeError):
                 print('Erro no tipo ou valor.')
             except Exception as erro:
@@ -47,7 +48,7 @@ while True:
     elif escolha_usuario == '2':
         while True:
             try:
-                valor = float(input('Digite um valor de dinheiro: '))
+                valor = leiadinheiro('Digite um valor de dinheiro: ')
                 while True:
                     print('-' * 50)
                     moeda_inicial = int(input('Moeda inicial:\n'
@@ -79,7 +80,8 @@ while True:
                 # concatenação das siglas da moeda inicial + moeda de câmbio, na posição "bid" (cotação), * o valor
                 # escolhido pelo usuário.
                 conversao = float(requisicao[moeda_inicial+moeda_cambio]["bid"]) * valor
-                print(f'A conversão de {valor} {moeda_inicial} para {moeda_cambio} é: {conversao:.2f}')
+                print(f'A conversão de {dinheiro_formatado(valor)} {moeda_inicial} para '
+                      f'{moeda_cambio} é: {dinheiro_formatado(conversao)}')
                 break
             except (ValueError, TypeError):
                 print('Erro no tipo ou valor.')
