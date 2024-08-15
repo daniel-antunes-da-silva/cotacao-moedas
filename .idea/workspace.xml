@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eae82493-369b-40a2-a1f8-ad1db2359919" name="Changes" comment="retirado iene japonês devido erro no valor do bid.">
-      <change afterPath="$PROJECT_DIR$/funcoes.py" afterDir="false" />
+    <list default="true" id="eae82493-369b-40a2-a1f8-ad1db2359919" name="Changes" comment="Foram adicionados: entrada de valores com virgula, e exibição de valores formatados com vírgula e 2 casas decimais (moeda).">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cotação.py" beforeDir="false" afterPath="$PROJECT_DIR$/cotação.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcoes.py" beforeDir="false" afterPath="$PROJECT_DIR$/funcoes_e_classes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +28,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 1
+}]]></component>
   <component name="ProjectId" id="2RkZ3ZRJ3nIWHDFHo8hG0jMalal" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -37,10 +42,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Daniel/PycharmProjects"
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Daniel/Documents/Projetos Python/cotacao_moeda"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.cotação">
     <configuration name="cotação" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="cotacao_moeda" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -62,9 +68,53 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="enviar_email_cotacao" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="cotacao_moeda" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/enviar_email_cotacao.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="funcoes_e_classes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="cotacao_moeda" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/funcoes_e_classes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.cotação" />
+        <item itemvalue="Python.funcoes_e_classes" />
+        <item itemvalue="Python.enviar_email_cotacao" />
       </list>
     </recent_temporary>
   </component>
@@ -112,10 +162,22 @@
       <option name="project" value="LOCAL" />
       <updated>1689112642712</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Foram adicionados: entrada de valores com virgula, e exibição de valores formatados com vírgula e 2 casas decimais (moeda).">
+      <created>1693647518117</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693647518117</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="f9e0e419-097c-4270-8074-4afe0e89bf0e" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -136,11 +198,6 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="f9e0e419-097c-4270-8074-4afe0e89bf0e" value="TOOL_WINDOW" />
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit inicial" />
@@ -148,6 +205,7 @@
     <MESSAGE value="adicionado tratamento de erros para inputs do tipo int, comentários no código e cotação do iene japonês" />
     <MESSAGE value="corrigido erro na conversão do iene para dólar/euro e vice-versa." />
     <MESSAGE value="retirado iene japonês devido erro no valor do bid." />
-    <option name="LAST_COMMIT_MESSAGE" value="retirado iene japonês devido erro no valor do bid." />
+    <MESSAGE value="Foram adicionados: entrada de valores com virgula, e exibição de valores formatados com vírgula e 2 casas decimais (moeda)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Foram adicionados: entrada de valores com virgula, e exibição de valores formatados com vírgula e 2 casas decimais (moeda)." />
   </component>
 </project>

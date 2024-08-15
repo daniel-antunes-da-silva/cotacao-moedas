@@ -1,17 +1,19 @@
 import requests
 from datetime import datetime
-from funcoes import leiadinheiro, dinheiro_formatado
+from funcoes_e_classes import leiadinheiro, dinheiro_formatado, enviar_email_simplificado
 
-print('     SISTEMA DE COTAÇÃO DE MOEDAS')
-data_atual = str(datetime.today())
+print('[ SISTEMA DE COTAÇÃO DE MOEDAS ]')
+data_atual = datetime.strftime(datetime.now(), '%d/%m/%Y')
 print(f'Data atual: {data_atual}')
-print('=' * 50)
+print('=' * 35)
 
 requisicao = requests.get(
     'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BRL-USD,BRL-EUR,USD-EUR,EUR-USD').json()
 # print(requisicao)
+
 lista_de_moedas = ['USDBRL', 'EURBRL']
 dic_moedas = {1: 'USD', 2: 'BRL', 3: 'EUR'}
+contatos = ['rafa.enfo@hotmail.com', 'nutricao.eciencia1@gmail.com', 'gabrielendeoliveira@gmail.com']
 while True:
     print('Escolha uma opção: ')
     escolha_usuario = str(input('[1] - Ver cotação de alguma moeda\n'
@@ -35,11 +37,23 @@ while True:
                 else:
                     # Pega a cotação da moeda escolhida
                     moeda = lista_de_moedas[escolha_cotacao - 1]
-                    print('1 real representa: ')
-                    print(f'Cotação {moeda}: {dinheiro_formatado(requisicao[f"{moeda}"]["bid"])}')
-                    print('Flutuação diária:')
-                    print(f'Mínima: {dinheiro_formatado(requisicao[moeda]["low"])}\n'
-                          f'Máxima: {dinheiro_formatado(requisicao[moeda]["high"])}')
+                    mensagem_exibida = f'Hoje, {data_atual}, R$1,00 representa:\n'\
+                                       f'Cotação {moeda}: {dinheiro_formatado(requisicao[f"{moeda}"]["bid"])}\n'\
+                                       f'Flutuação diária:\n'\
+                                       f'Mínima: {dinheiro_formatado(requisicao[moeda]["low"])}\n'\
+                                       f'Máxima: {dinheiro_formatado(requisicao[moeda]["high"])}\n'
+
+                    print(mensagem_exibida)
+                    verif_envio_email = str(input(f'Deseja enviar email com o conteúdo acima'
+                                             f' para {contatos}? [S/N]')).upper()
+                    if verif_envio_email not in ('Ss' or 'Nn'):
+                        print('Opção errada, e-mail não enviado.')
+                    elif verif_envio_email == 'S':
+                        enviar_email_simplificado(mensagem_exibida, contatos)
+                        print('E-mail enviado!')
+                    elif verif_envio_email == 'N':
+                        print('Email não enviado!')
+
             except (ValueError, TypeError):
                 print('Erro no tipo ou valor.')
             except Exception as erro:
